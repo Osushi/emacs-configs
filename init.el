@@ -85,19 +85,13 @@
 
 ;; For ruby-mode
 (autoload 'ruby-mode "ruby-mode"
-  "Mode for editing ruby source files" t)
+    "Mode for editing ruby source files" t)
 (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Capfile$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Gemfile$" . ruby-mode))
 
 ;; For ruby-end
-(require 'ruby-end)
-(add-hook 'ruby-mode-hook
-          '(lambda ()
-             (abbrev-mode 1)
-             (electric-pair-mode t)
-             (electric-indent-mode t)
-             (electric-layout-mode t)))
+;; (require 'ruby-end)
 
 ;; For ruby-block
 (require 'ruby-block)
