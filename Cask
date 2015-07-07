@@ -15,6 +15,6 @@
 (depends-on "web-mode")
 
 (depends-on "php-completion"
-        :git "https://github.com/suzuki/php-completion.git"
-        :branch "develop"
-        :files ("*.el" "phpcmp-index-of-*"))
+:git "https://github.com/suzuki/php-completion.git"
+:branch "develop"
+:files ("*.el" "phpcmp-index-of-*"))
