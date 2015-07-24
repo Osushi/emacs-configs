@@ -34,6 +34,18 @@
 (global-font-lock-mode t)
 ;; セーブ時に末尾のスペースを削除
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+;; 指定行にジャンプする
+(global-set-key "\C-xj" 'goto-line)
+;; メニューバーを消す(Only Terminal)
+(if (eq window-system 'x)
+    (menu-bar-mode 1) (menu-bar-mode 0))
+;; 時計表示
+(display-time)
+(setq display-time-string-forms
+      '((format "%s/%s(%s)%s:%s"
+                month day dayname
+                24-hours minutes
+                )))
 
 ;; Set Cask Path
 (require 'cask)
