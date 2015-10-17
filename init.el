@@ -150,3 +150,14 @@
   (revert-buffer t t)
   )
 (put 'set-goal-column 'disabled nil)
+
+;; For go-mode
+(require 'go-mode)
+(add-hook 'before-save-hook 'gofmt-before-save)
+
+(add-to-list 'load-path "~/.go/src/github.com/nsf/gocode/emacs")
+(require 'go-autocomplete)
+(require 'auto-complete-config)
+
+(add-to-list 'load-path "~/.go/src/github.com/dougm/goflymake")
+(require 'go-flymake)
