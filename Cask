@@ -13,6 +13,7 @@
 (depends-on "ruby-block")
 (depends-on "ruby-mode")
 (depends-on "web-mode")
+(depends-on "go-mode")
 
 (depends-on "php-completion"
 :git "https://github.com/suzuki/php-completion.git"
