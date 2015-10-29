@@ -133,9 +133,6 @@
   )
 (web-mode-indent 2)
 
-;; For markdown-mode
-(require 'markdown-mode)
-
 ;; For flycheck
 (require 'flycheck)
 (setq flycheck-check-syntax-automatically '(mode-enabled save))
