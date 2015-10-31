@@ -158,3 +158,8 @@
 
 (add-to-list 'load-path "~/.go/src/github.com/dougm/goflymake")
 (require 'go-flymake)
+
+;; For yaml-mode
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.ya?ml$" . yaml-mode))
+(define-key yaml-mode-map "\C-m" 'newline-and-indent)
