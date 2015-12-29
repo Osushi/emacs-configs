@@ -32,8 +32,6 @@
 (setq-default tab-width 2 indent-tabs-mode nil)
 ;; キーワードのカラー表示
 (global-font-lock-mode t)
-;; 行末の空白をハイライト
-(setq-default show-trailing-whitespace t)
 ;; セーブ時に末尾のスペースを削除
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 ;; 指定行にジャンプする
@@ -63,6 +61,21 @@
 (require 'auto-complete-config)
 (global-auto-complete-mode t)
 (setq ac-auto-start t)
+
+;; For whitespece-mode
+(require 'whitespace)
+(setq whitespace-style '(face
+                         trailing
+                         tabs
+                         empty
+                         space-mark
+                         tab-mark
+                         ))
+
+(setq whitespace-display-mappings
+      '((tab-mark ?\t [?\u00BB ?\t] [?\\ ?\t])))
+
+(global-whitespace-mode 1)
 
 ;; For php-mode, php-cs-fixer, php-completion
 (require 'php-mode)
