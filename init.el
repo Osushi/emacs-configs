@@ -32,6 +32,8 @@
 (setq-default tab-width 2 indent-tabs-mode nil)
 ;; キーワードのカラー表示
 (global-font-lock-mode t)
+;; 行末の空白をハイライト
+(setq-default show-trailing-whitespace t)
 ;; セーブ時に末尾のスペースを削除
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 ;; 指定行にジャンプする
