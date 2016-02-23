@@ -9,7 +9,7 @@
   (tool-bar-mode 0)
   )
 
-;; Set Backu
+;; Set Backup
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 (setq auto-save-list-file-name nil)
