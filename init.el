@@ -48,9 +48,6 @@
 (delete-selection-mode t)
 ;; 検索中に単語を削除
 (define-key isearch-mode-map (kbd "C-h") 'isearch-del-char)
-;; カーソル固定でスクロール
-(global-set-key (kbd "M-n") (lambda () (interactive) (scroll-up 1)))
-(global-set-key (kbd "M-p") (lambda () (interactive) (scroll-down 1)))
 
 ;; Set Cask Path
 (require 'cask)
