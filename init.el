@@ -46,8 +46,6 @@
                 )))
 ;; 選択したリージョンに上書き
 (delete-selection-mode t)
-;; 検索中に単語を削除
-(define-key isearch-mode-map (kbd "C-h") 'isearch-del-char)
 
 ;; Set Cask Path
 (require 'cask)
