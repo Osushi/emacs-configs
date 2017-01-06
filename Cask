@@ -15,6 +15,7 @@
 (depends-on "web-mode")
 (depends-on "go-mode")
 (depends-on "yaml-mode")
+(depends-on "swift-mode")
 
 (depends-on "php-completion"
 :git "https://github.com/suzuki/php-completion.git"
