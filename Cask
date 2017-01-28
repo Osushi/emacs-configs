@@ -2,6 +2,7 @@
 (source melpa)
 
 (depends-on "auto-complete")
+(depends-on "undo-tree")
 (depends-on "helm")
 (depends-on "php-mode")
 (depends-on "smooth-scroll")
