@@ -48,7 +48,7 @@
 (delete-selection-mode t)
 ;; ファイルサイズを表示
 (size-indication-mode t)
-;; マイススクロールでカーソル移動
+;; マウススクロールでカーソル移動
 (xterm-mouse-mode t)
 (mouse-wheel-mode t)
 (global-set-key [mouse-4] (kbd "C-p"))
@@ -66,8 +66,14 @@
 ;; For auto-complete
 (require 'auto-complete)
 (require 'auto-complete-config)
+(ac-set-trigger-key "TAB")
 (global-auto-complete-mode t)
 (setq ac-auto-start t)
+
+;; For undo-tree
+(require 'undo-tree)
+(global-undo-tree-mode t)
+(global-set-key (kbd "M-/") 'undo-tree-redo)
 
 ;; For whitespece
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
