@@ -60,8 +60,8 @@
 
 ;; Set Plugin
 ;; For smooth-scroll
-(require 'smooth-scroll)
-(smooth-scroll-mode t)
+;; (require 'smooth-scroll)
+;; (smooth-scroll-mode t)
 
 ;; For auto-complete
 (require 'auto-complete)
