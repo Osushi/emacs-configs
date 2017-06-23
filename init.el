@@ -108,3 +108,6 @@
   (setq web-mode-tag-auto-close-style 2)
   )
 (web-mode-indent 2)
+
+(require 'color-theme-sanityinc-tomorrow)
+(load-theme 'sanityinc-tomorrow-bright t)
