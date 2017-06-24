@@ -109,5 +109,11 @@
   )
 (web-mode-indent 2)
 
+;; yaml-mode
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.ya?ml$" . yaml-mode))
+(define-key yaml-mode-map "\C-m" 'newline-and-indent)
+
+;; theme
 (require 'color-theme-sanityinc-tomorrow)
 (load-theme 'sanityinc-tomorrow-bright t)

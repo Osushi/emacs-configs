@@ -9,5 +9,6 @@
 (depends-on "flycheck")
 (depends-on "rainbow-delimiters")
 (depends-on "web-mode")
+(depends-on "yaml-mode")
 (depends-on "color-theme-sanityinc-tomorrow")
 (depends-on "ample-theme")
