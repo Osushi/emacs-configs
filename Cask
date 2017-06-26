@@ -12,3 +12,4 @@
 (depends-on "yaml-mode")
 (depends-on "color-theme-sanityinc-tomorrow")
 (depends-on "ample-theme")
+(depends-on "molokai-theme")
