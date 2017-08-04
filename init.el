@@ -32,7 +32,7 @@
                 )))
 (delete-selection-mode t)
 (size-indication-mode t)
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+;;(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; Packages
 (require 'cask)
@@ -119,3 +119,16 @@
 ;; (load-theme 'sanityinc-tomorrow-bright t)
 (require 'molokai-theme)
 (setq molokai-theme-kit t)
+
+;; markdown mode
+(require 'markdown-mode)
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+(defvar delete-trailing-whitespece-before-save t)
+(defun my-delete-trailing-whitespace ()
+  (if delete-trailing-whitespece-before-save
+      (delete-trailing-whitespace)))
+(add-hook 'before-save-hook 'my-delete-trailing-whitespace)
+(add-hook 'markdown-mode-hook
+          '(lambda ()
+             (set (make-local-variable 'delete-trailing-whitespece-before-save) nil)))
