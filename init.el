@@ -32,7 +32,6 @@
                 )))
 (delete-selection-mode t)
 (size-indication-mode t)
-;;(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; Packages
 (require 'cask)
@@ -132,3 +131,7 @@
 (add-hook 'markdown-mode-hook
           '(lambda ()
              (set (make-local-variable 'delete-trailing-whitespece-before-save) nil)))
+
+;; go mode
+(require 'go-mode)
+(add-hook 'before-save-hook 'gofmt-before-save)

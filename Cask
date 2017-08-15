@@ -14,3 +14,4 @@
 (depends-on "ample-theme")
 (depends-on "molokai-theme")
 (depends-on "markdown-mode")
+(depends-on "go-mode")
