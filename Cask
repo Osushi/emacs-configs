@@ -15,3 +15,4 @@
 (depends-on "molokai-theme")
 (depends-on "markdown-mode")
 (depends-on "go-mode")
+(depends-on "go-autocomplete")
