@@ -133,5 +133,9 @@
              (set (make-local-variable 'delete-trailing-whitespece-before-save) nil)))
 
 ;; go mode
+(add-to-list 'exec-path (expand-file-name "~/.goenv/bin"))
+(require 'go-autocomplete)
 (require 'go-mode)
 (add-hook 'before-save-hook 'gofmt-before-save)
+(add-hook 'go-mode-hook (lambda ()
+                          (local-set-key (kbd "M-.") 'godef-jump)))
