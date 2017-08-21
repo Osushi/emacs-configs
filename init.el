@@ -90,7 +90,7 @@
 (setq flycheck-display-errors-delay 0.3)
 (define-key global-map (kbd "\C-cn") 'flycheck-next-error)
 (define-key global-map (kbd "\C-cp") 'flycheck-previous-error)
-(define-key global-map (kbd "\C-cd") 'flycheck-list-errors)
+(define-key global-map (kbd "\C-cl") 'flycheck-list-errors)
 
 ;; rainbow-delimiters
 (require 'rainbow-delimiters)
