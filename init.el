@@ -54,11 +54,11 @@
 (global-set-key (kbd "M-x") #'helm-M-x)
 (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
 (global-set-key (kbd "C-x C-f") #'helm-find-files)
-(global-set-key (kbd "C-M-s") 'helm-ag)
+(global-set-key (kbd "C-x b") #'helm-buffers-list)
+(global-set-key (kbd "C-M-s") #'helm-ag)
 (custom-set-variables
  '(helm-ag-base-command "ag --nocolor --nogroup --ignore-case")
- '(helm-ag-command-option "--all-text")
- '(helm-ag-insert-at-point 'symbol))
+ '(helm-ag-command-option "--all-text"))
 
 ;; php-mode, php-cs-fixer
 (require 'php-mode)
