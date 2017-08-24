@@ -50,10 +50,15 @@
 
 ;; helm
 (require 'helm-config)
+(require 'helm-ag)
 (global-set-key (kbd "M-x") #'helm-M-x)
 (global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
 (global-set-key (kbd "C-x C-f") #'helm-find-files)
-(helm-mode 1)
+(global-set-key (kbd "C-M-s") 'helm-ag)
+(custom-set-variables
+ '(helm-ag-base-command "ag --nocolor --nogroup --ignore-case")
+ '(helm-ag-command-option "--all-text")
+ '(helm-ag-insert-at-point 'symbol))
 
 ;; php-mode, php-cs-fixer
 (require 'php-mode)
