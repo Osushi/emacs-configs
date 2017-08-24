@@ -4,6 +4,7 @@
 (depends-on "auto-complete")
 (depends-on "undo-tree")
 (depends-on "helm")
+(depends-on "helm-ag")
 (depends-on "php-mode")
 (depends-on "point-undo")
 (depends-on "flycheck")
@@ -16,3 +17,4 @@
 (depends-on "markdown-mode")
 (depends-on "go-mode")
 (depends-on "go-autocomplete")
+(depends-on "ag")
