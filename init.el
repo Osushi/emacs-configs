@@ -123,8 +123,6 @@
 (define-key yaml-mode-map "\C-m" 'newline-and-indent)
 
 ;; theme
-;; (require 'color-theme-sanityinc-tomorrow)
-;; (load-theme 'sanityinc-tomorrow-bright t)
 (require 'molokai-theme)
 (setq molokai-theme-kit t)
 
