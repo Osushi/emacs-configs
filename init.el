@@ -1,8 +1,6 @@
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
-;; (package-initialize)
+;;; init.el --- init.el
+;;; Commentary:
+;;; Code:
 
 ;; System
 (set-language-environment 'Japanese)
@@ -17,17 +15,11 @@
 (show-paren-mode t)
 (column-number-mode t)
 (line-number-mode t)
-(setq-default tab-width 4 indent-tabs-mode nil)
 (global-font-lock-mode t)
+
 (global-set-key "\C-xj" 'goto-line)
 (if (eq window-system 'x)
     (menu-bar-mode 1) (menu-bar-mode 0))
-(display-time)
-(setq display-time-string-forms
-      '((format "%s/%s(%s)%s:%s"
-                month day dayname
-                24-hours minutes
-                )))
 (delete-selection-mode t)
 (size-indication-mode t)
 
@@ -106,27 +98,23 @@
 (require 'rainbow-delimiters)
 (add-hook 'php-mode-hook 'rainbow-delimiters-mode)
 
-;; php-mode, php-cs-fixer
+;; php-mode
 (require 'php-mode)
 (add-hook 'php-mode-hook
           (lambda ()
             (require 'company-php)
-            (ac-php-core-eldoc-setup) ;; enable eldoc
+            (setq php-manual-url "http://php.net/ja/manual")
+            (ac-php-core-eldoc-setup)
             (make-local-variable 'company-backends)
             (add-to-list 'company-backends 'company-ac-php-backend)
-            (ac-php-core-eldoc-setup ) ;; enable eldoc
-            (define-key php-mode-map "\C-c\C-i" 'php-cs-fixer)
-            (setq php-manual-url "http://php.net/ja/manual")
+	    (define-key php-mode-map  (kbd "C-]") 'ac-php-find-symbol-at-point)
+	    (add-hook 'php-mode-hook 'php-enable-default-coding-style)
+	    (define-key php-mode-map  (kbd "C-c C-i") 'php-cs-fixer--fix)
             )
           )
 (add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
+(require 'php-cs-fixer)
 
-(defun php-cs-fixer ()
-  (interactive)
-  (setq filename (buffer-file-name (current-buffer)))
-  (call-process "php-cs-fixer" nil nil nil "fix" filename)
-  (revert-buffer t t)
-  )
 
 ;; web-mode
 (require 'web-mode)
@@ -155,19 +143,5 @@
 (require 'markdown-mode)
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
-(defvar delete-trailing-whitespece-before-save t)
-(defun my-delete-trailing-whitespace ()
-  (if delete-trailing-whitespece-before-save
-      (delete-trailing-whitespace)))
-(add-hook 'before-save-hook 'my-delete-trailing-whitespace)
-(add-hook 'markdown-mode-hook
-          '(lambda ()
-             (set (make-local-variable 'delete-trailing-whitespece-before-save) nil)))
 
-;; go mode
-(add-to-list 'exec-path (expand-file-name "~/.goenv/bin"))
-(require 'go-mode)
-(setq gofmt-command "goimports")
-(add-hook 'before-save-hook 'gofmt-before-save)
-(add-hook 'go-mode-hook (lambda ()
-                          (local-set-key (kbd "M-.") 'godef-jump)))
+;;; init.el ends here
