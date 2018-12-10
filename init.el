@@ -22,6 +22,7 @@
     (menu-bar-mode 1) (menu-bar-mode 0))
 (delete-selection-mode t)
 (size-indication-mode t)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;; Packages
 (require 'cask)
