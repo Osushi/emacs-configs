@@ -23,6 +23,9 @@
 (delete-selection-mode t)
 (size-indication-mode t)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
+(add-hook 'c-mode-common-hook
+          (lambda ()
+             (c-set-offset 'case-label '+)))
 
 ;; Packages
 (require 'cask)
@@ -115,7 +118,6 @@
           )
 (add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
 (require 'php-cs-fixer)
-
 
 ;; web-mode
 (require 'web-mode)
