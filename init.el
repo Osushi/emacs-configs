@@ -23,9 +23,6 @@
 (delete-selection-mode t)
 (size-indication-mode t)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
-(add-hook 'c-mode-common-hook
-          (lambda ()
-             (c-set-offset 'case-label '+)))
 
 ;; Packages
 (require 'cask)
@@ -104,20 +101,23 @@
 
 ;; php-mode
 (require 'php-mode)
+(require 'phpcbf)
+(custom-set-variables
+ '(phpcbf-standard "PSR2")
+ '(flycheck-phpcs-standard "PSR2")
+ '(php-manual-url "http://php.net/ja/manual"))
 (add-hook 'php-mode-hook
           (lambda ()
             (require 'company-php)
-            (setq php-manual-url "http://php.net/ja/manual")
             (ac-php-core-eldoc-setup)
             (make-local-variable 'company-backends)
             (add-to-list 'company-backends 'company-ac-php-backend)
 	    (define-key php-mode-map  (kbd "C-]") 'ac-php-find-symbol-at-point)
 	    (add-hook 'php-mode-hook 'php-enable-default-coding-style)
-	    (define-key php-mode-map  (kbd "C-c C-i") 'php-cs-fixer--fix)
-            )
+	    (define-key php-mode-map  (kbd "C-c C-i") 'phpcbf)
+	    )
           )
 (add-to-list 'auto-mode-alist '("\\.php\\'" . php-mode))
-(require 'php-cs-fixer)
 
 ;; web-mode
 (require 'web-mode)
@@ -146,5 +146,9 @@
 (require 'markdown-mode)
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
+;; editor config
+(require 'editorconfig)
+(editorconfig-mode 1)
 
 ;;; init.el ends here
