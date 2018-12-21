@@ -102,7 +102,6 @@
 ;; php-mode
 (require 'php-mode)
 (require 'phpcbf)
-(require 'flycheck-phanclient)
 (custom-set-variables
  '(phpcbf-standard "PSR2")
  '(flycheck-phpcs-standard "PSR2")

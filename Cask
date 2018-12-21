@@ -13,7 +13,6 @@
 (depends-on "rainbow-delimiters")
 (depends-on "php-mode")
 (depends-on "phpcbf")
-(depends-on "flycheck-phanclient" :git "https://github.com/TysonAndre/flycheck-phanclient.git")
 (depends-on "company-php")
 (depends-on "web-mode")
 (depends-on "js2-mode")
