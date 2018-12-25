@@ -20,3 +20,4 @@
 (depends-on "json-mode")
 (depends-on "markdown-mode")
 (depends-on "editorconfig")
+(depends-on "yasnippet")

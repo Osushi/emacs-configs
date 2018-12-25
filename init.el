@@ -65,14 +65,23 @@
                     :background "orange")
 (set-face-attribute 'company-scrollbar-bg nil
                     :background "gray40")
-(global-set-key (kbd "C-M-i") 'company-complete)
+(global-set-key (kbd "C-c i") 'company-complete)
 (define-key company-active-map (kbd "C-n") 'company-select-next)
 (define-key company-active-map (kbd "C-p") 'company-select-previous)
 (define-key company-search-map (kbd "C-n") 'company-select-next)
 (define-key company-search-map (kbd "C-p") 'company-select-previous)
 (define-key company-active-map (kbd "C-s") 'company-filter-candidates)
-(define-key company-active-map (kbd "C-i") 'company-complete-selection)
-(define-key emacs-lisp-mode-map (kbd "C-M-i") 'company-complete)
+(define-key emacs-lisp-mode-map (kbd "C-c i") 'company-complete)
+
+;; yasnippet
+(require 'yasnippet)
+(setq yas-snippet-dirs
+      '("~/.emacs.d/snippets"
+        ))
+(define-key yas-minor-mode-map (kbd "C-x i i") 'yas-insert-snippet)
+(define-key yas-minor-mode-map (kbd "C-x i n") 'yas-new-snippet)
+(define-key yas-minor-mode-map (kbd "C-x i v") 'yas-visit-snippet-file)
+(yas-global-mode 1)
 
 ;; flycheck
 (require 'flycheck)
@@ -110,8 +119,8 @@
           (lambda ()
             (require 'company-php)
             (ac-php-core-eldoc-setup)
-            (make-local-variable 'company-backends)
-            (add-to-list 'company-backends 'company-ac-php-backend)
+	    (make-local-variable 'company-backends)
+	    (add-to-list 'company-backends '(company-ac-php-backend company-yasnippet :with company-dabbrev-code))
 	    (define-key php-mode-map  (kbd "C-]") 'ac-php-find-symbol-at-point)
 	    (add-hook 'php-mode-hook 'php-enable-default-coding-style)
 	    (define-key php-mode-map  (kbd "C-c C-i") 'phpcbf)
