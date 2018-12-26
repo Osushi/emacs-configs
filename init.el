@@ -24,6 +24,8 @@
 (size-indication-mode t)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+(setq confirm-kill-emacs 'y-or-n-p)
+
 ;; Packages
 (require 'cask)
 (cask-initialize)
