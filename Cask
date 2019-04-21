@@ -21,3 +21,4 @@
 (depends-on "markdown-mode")
 (depends-on "editorconfig")
 (depends-on "yasnippet")
+(depends-on "terraform-mode")
