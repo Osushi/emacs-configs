@@ -115,6 +115,7 @@
 (require 'phpcbf)
 (custom-set-variables
  '(phpcbf-standard "PSR2")
+ '(flycheck-phpmd-rulesets "unusedcode")
  '(flycheck-phpcs-standard "PSR2")
  '(php-manual-url "http://php.net/ja/manual"))
 (add-hook 'php-mode-hook
