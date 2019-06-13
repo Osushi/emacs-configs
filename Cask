@@ -22,3 +22,4 @@
 (depends-on "editorconfig")
 (depends-on "yasnippet")
 (depends-on "terraform-mode")
+(depends-on "git-time-metric")

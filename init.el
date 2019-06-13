@@ -75,6 +75,9 @@
 (define-key company-active-map (kbd "C-s") 'company-filter-candidates)
 (define-key emacs-lisp-mode-map (kbd "C-c i") 'company-complete)
 
+;; gtm
+(add-hook 'after-save-hook 'git-time-metric-record)
+
 ;; yasnippet
 (require 'yasnippet)
 (setq yas-snippet-dirs
