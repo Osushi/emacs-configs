@@ -16,18 +16,18 @@
 (column-number-mode t)
 (line-number-mode t)
 (global-font-lock-mode t)
-
 (global-set-key "\C-xj" 'goto-line)
-(if (eq window-system 'x)
-    (menu-bar-mode 1) (menu-bar-mode 0))
+
+(menu-bar-mode 0)
+(tool-bar-mode 0)
+(global-auto-revert-mode t)
 (delete-selection-mode t)
 (size-indication-mode t)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
-
 (setq confirm-kill-emacs 'y-or-n-p)
 
 ;; Packages
-(require 'cask)
+(require 'cask "~/.cask/cask.el")
 (cask-initialize)
 
 ;; theme
@@ -75,13 +75,15 @@
 (define-key company-active-map (kbd "C-s") 'company-filter-candidates)
 (define-key emacs-lisp-mode-map (kbd "C-c i") 'company-complete)
 
-;; gtm
-(add-hook 'after-save-hook 'git-time-metric-record)
+;; nyan-mode
+(require 'nyan-mode)
+(if window-system (progn
+    (nyan-mode 1)))
 
 ;; yasnippet
 (require 'yasnippet)
 (setq yas-snippet-dirs
-      '("~/.emacs.d/snippets"
+      '("~/.emacs.d/yasnippet-snippets/snippets"
         ))
 (define-key yas-minor-mode-map (kbd "C-x i i") 'yas-insert-snippet)
 (define-key yas-minor-mode-map (kbd "C-x i n") 'yas-new-snippet)
@@ -146,7 +148,20 @@
 (add-to-list 'auto-mode-alist '("\\.es$" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.es6$" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.jsx$" . js2-mode))
-(add-hook 'js2-mode-hook 'js-indent-hook)
+(add-hook 'js-mode-hook
+          (lambda ()
+            (make-local-variable 'js-indent-level)
+            (setq js-indent-level 2)))
+
+;;;; prettier
+(defun prettier ()
+  (interactive)
+  (shell-command
+    (format "%s --write %s"
+      (shell-quote-argument (executable-find "prettier"))
+      (shell-quote-argument (expand-file-name buffer-file-name))))
+  (revert-buffer t t t))
+(global-set-key (kbd "C-c C-i") 'prettier)
 
 ;; yaml-mode
 (require 'yaml-mode)
