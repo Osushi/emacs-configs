@@ -19,7 +19,9 @@
 (global-set-key "\C-xj" 'goto-line)
 
 (menu-bar-mode 0)
-(tool-bar-mode 0)
+(if window-system (progn
+		    (tool-bar-mode 0)
+		    ))
 (global-auto-revert-mode t)
 (delete-selection-mode t)
 (size-indication-mode t)
@@ -107,7 +109,9 @@
  '(anzu-search-threshold 1000))
 
 ;; undo-tree
-(require 'undo-tree)
+(if (eq system-type 'gnu/linux)
+    (require 'undo-tree "~/.emacs.d/plugins/undo-tree.el")
+    (require 'undo-tree))
 (global-undo-tree-mode t)
 (global-set-key (kbd "M-/") 'undo-tree-redo)
 
