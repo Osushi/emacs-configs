@@ -85,7 +85,7 @@
 ;; yasnippet
 (require 'yasnippet)
 (setq yas-snippet-dirs
-      '("~/.emacs.d/yasnippet-snippets/snippets"
+      '("~/.emacs.d/plugins/yasnippet-snippets/snippets"
         ))
 (define-key yas-minor-mode-map (kbd "C-x i i") 'yas-insert-snippet)
 (define-key yas-minor-mode-map (kbd "C-x i n") 'yas-new-snippet)
@@ -110,7 +110,7 @@
 
 ;; undo-tree
 (if (eq system-type 'gnu/linux)
-    (require 'undo-tree "~/.emacs.d/plugins/undo-tree.el")
+    (require 'undo-tree "~/.emacs.d/plugins/undo-tree.el/undo-tree.el")
     (require 'undo-tree))
 (global-undo-tree-mode t)
 (global-set-key (kbd "M-/") 'undo-tree-redo)
