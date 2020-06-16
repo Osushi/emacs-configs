@@ -80,7 +80,9 @@
 ;; nyan-mode
 (require 'nyan-mode)
 (if window-system (progn
-    (nyan-mode 1)))
+		    (nyan-mode 1)
+		    (nyan-start-animation)
+		    ))
 
 ;; yasnippet
 (require 'yasnippet)
