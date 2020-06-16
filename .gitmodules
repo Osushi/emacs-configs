@@ -1,0 +1,6 @@
+[submodule "plugins/yasnippet-snippets"]
+	path = plugins/yasnippet-snippets
+	url = git@github.com:AndreaCrotti/yasnippet-snippets.git
+[submodule "plugins/undo-tree.el"]
+	path = plugins/undo-tree.el
+	url = git@github.com:apchamberlain/undo-tree.el.git
